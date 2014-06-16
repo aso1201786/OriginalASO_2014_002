@@ -2,12 +2,17 @@ package jp.ac.st.asojuku.originalaso_2014_002;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends Activity implements View.OnClickListener{
+
+	SQLiteDatabase sdb = null;
+	MySQLiteOpenHelper helper = null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +30,15 @@ public class MainActivity extends Activity implements View.OnClickListener{
 		btnInsert.setOnClickListener(this);
 		Button btnCheck =(Button)findViewById(R.id.btnCheck);
 		btnCheck.setOnClickListener(this);
+
+		if(sdb == null){
+			helper = new MySQLiteOpenHelper(getApplicationContext());
+		}
+		try{
+			sdb = helper.getWritableDatabase();
+		}catch(SQLiteException e){
+			return;
+		}
 	}
 
 	@Override
