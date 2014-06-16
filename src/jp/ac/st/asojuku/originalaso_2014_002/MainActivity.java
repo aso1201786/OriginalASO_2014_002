@@ -34,14 +34,15 @@ public class MainActivity extends Activity implements View.OnClickListener{
 		switch(v.getId()){
 			case R.id.btnMainte:
 				intent = new Intent(MainActivity.this, MaintenanceActivity.class);
+				startActivity(intent);
 				break;
 			case R.id.btnInsert:
 				break;
 			case R.id.btnCheck:
 				intent = new Intent(MainActivity.this, HitokotoActivity.class);
+				startActivity(intent);
 				break;
 		}
-		startActivity(intent);
 	}
 
 	@Override
