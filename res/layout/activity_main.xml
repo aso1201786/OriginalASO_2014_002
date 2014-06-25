@@ -19,7 +19,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/edtMsg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView2"
@@ -29,23 +29,6 @@
 
         <requestFocus />
     </EditText>
-
-    <Button
-        android:id="@+id/btnMainte"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText1"
-        android:layout_below="@+id/editText1"
-        android:layout_marginTop="74dp"
-        android:text="メンテ" />
-
-    <Button
-        android:id="@+id/btnInsert"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/editText1"
-        android:layout_alignTop="@+id/btnMainte"
-        android:text="登録" />
 
     <TextView
         android:id="@+id/textView2"
@@ -61,9 +44,27 @@
         android:id="@+id/btnCheck"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btnMainte"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
+        android:layout_marginBottom="44dp"
         android:text="ひとことチェック" />
+
+    <Button
+        android:id="@+id/btnInsert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnCheck"
+        android:layout_alignRight="@+id/edtMsg"
+        android:layout_marginBottom="50dp"
+        android:text="登録" />
+
+    <Button
+        android:id="@+id/btnMainte"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btnInsert"
+        android:layout_alignBottom="@+id/btnInsert"
+        android:layout_alignLeft="@+id/edtMsg"
+        android:text="メンテ" />
 
 </RelativeLayout>

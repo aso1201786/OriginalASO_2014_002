@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class MainActivity extends Activity implements View.OnClickListener{
 
@@ -46,14 +47,22 @@ public class MainActivity extends Activity implements View.OnClickListener{
 		// TODO 自動生成されたメソッド・スタブ
 		Intent intent = null;
 		switch(v.getId()){
+			case R.id.btnInsert:
+				EditText etv = (EditText)findViewById(R.id.edtMsg);
+				String inputMsg = etv.getText().toString();
+				if(inputMsg != null && !inputMsg.isEmpty()){
+					helper.insertHitokoto(sdb, inputMsg);
+				}
+				etv.setText("");
+				break;
 			case R.id.btnMainte:
 				intent = new Intent(MainActivity.this, MaintenanceActivity.class);
 				startActivity(intent);
 				break;
-			case R.id.btnInsert:
-				break;
 			case R.id.btnCheck:
-				intent = new Intent(MainActivity.this, HitokotoActivity.class);
+				String strHitokoto = helper.selectRandomHitokoto(sdb);
+				intent = new Intent(MainActivity.this,HitokotoActivity.class);
+				intent.putExtra("hitokoto",strHitokoto);
 				startActivity(intent);
 				break;
 		}
